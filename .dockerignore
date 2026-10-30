@@ -1,0 +1,19 @@
+# Credenciais nunca vao para a imagem
+.env
+
+# Ambiente e caches locais
+.venv
+__pycache__/
+*.py[oc]
+.mypy_cache/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Dados e artefatos que a API nao usa
+.git
+data/
+eval/
+tests/
+*.drawio
+.$*.bkp
+src/dev.ipynb

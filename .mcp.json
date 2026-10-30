@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "arxiv-radar": {
+      "command": "/home/deive/.local/bin/uv",
+      "args": [
+        "run",
+        "--directory",
+        "/home/deive/agents_llm/vectordb_pipeline",
+        "python",
+        "mcp_server/server.py"
+      ],
+      "env": {
+        "API_URL": "http://localhost:8000"
+      }
+    }
+  }
+}

@@ -1,0 +1,322 @@
+services:
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: qdrant-vectordb
+    restart: unless-stopped
+    ports:
+      - "6666:6333"
+      - "6667:6334"
+    volumes:
+      - ./data/qdrant_storage:/qdrant/storage
+    networks:
+      - pipenet
+
+  # Extracao de texto dos PDFs com a estrutura do artigo (titulo, abstract,
+  # secoes, paragrafos, legendas, referencias) em TEI XML. Imagem "-crf": so
+  # os modelos CRF, ~1 GB e feita para CPU. A "-full" (deep learning) passa de
+  # 14 GB e so compensa com GPU.
+  grobid:
+    image: grobid/grobid:0.9.1-crf
+    container_name: grobid
+    restart: unless-stopped
+    ports:
+      - "8070:8070"
+    # Medido em 2026-09-26: ~4,2 GB de memoria real ja com os primeiros PDFs --
+    # quase tudo nativo (modelos CRF), fora do heap Java de 1 GB. Com 4g ficava
+    # encostado no teto. O limite evita disputar memoria com
+    # o resto da stack.
+    mem_limit: 6g
+    environment:
+      # heap fixo, em vez de 1/4 do limite do container
+      GROBID_SERVICE_OPTS: >-
+        -Xmx1g
+        --add-opens java.base/java.lang=ALL-UNNAMED
+        --add-opens java.base/sun.nio.ch=ALL-UNNAMED
+        --add-opens java.base/java.io=ALL-UNNAMED
+      # o glibc abre uma arena de malloc por thread; com as bibliotecas nativas
+      # do GROBID isso infla a memoria sem uso real
+      MALLOC_ARENA_MAX: "2"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8070/api/isalive || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+      start_period: 60s
+    networks:
+      - pipenet
+
+  # Servidor de embeddings (Text Embeddings Inference, Hugging Face), imagem
+  # para CPU. O modelo tem que ser o mesmo do tokenizador do chunker
+  # (MODELO_TOKENIZADOR em src/load_chunks.py): trocar um pede trocar o outro
+  # e refazer chunks e indice. O modelo e baixado na primeira subida e fica no
+  # volume tei_data.
+  embeddings:
+    image: ghcr.io/huggingface/text-embeddings-inference:cpu-1.9.4
+    container_name: embeddings
+    restart: unless-stopped
+    command: --model-id BAAI/bge-small-en-v1.5 --max-client-batch-size 64
+    ports:
+      - "8081:80"
+    volumes:
+      - tei_data:/data
+    mem_limit: 2g
+    networks:
+      - pipenet
+
+  # Reranking da busca: cross-encoder que le pergunta e trecho JUNTOS e da a
+  # relevancia -- mais preciso que comparar vetores, e mais caro, por isso so
+  # reordena os melhores candidatos do Qdrant. MiniLM-L6 (22M, 6 camadas):
+  # cerca de metade do custo do modelo de embeddings, feito para CPU. Ingles,
+  # como os embeddings: a pergunta chega ja traduzida. Mesma imagem do TEI.
+  reranker:
+    image: ghcr.io/huggingface/text-embeddings-inference:cpu-1.9.4
+    container_name: reranker
+    restart: unless-stopped
+    command: --model-id cross-encoder/ms-marco-MiniLM-L-6-v2 --max-client-batch-size 64
+    ports:
+      - "8082:80"
+    volumes:
+      - tei_data:/data
+    mem_limit: 1g
+    networks:
+      - pipenet
+
+  # Traducao da PERGUNTA de busca (pt -> en) antes do embedding: o
+  # bge-small-en-v1.5 e so ingles, e pergunta em portugues errava o artigo
+  # certo em 3 de 3 testes (2026-09-26). So pt e en carregados: menos download
+  # e memoria. /detect deixa pergunta ja em ingles passar sem traduzir.
+  # Os modelos (Argos) sao baixados na primeira subida e ficam no volume.
+  translate:
+    image: libretranslate/libretranslate:v1.9.6
+    container_name: translate
+    restart: unless-stopped
+    ports:
+      - "5010:5000"
+    environment:
+      LT_LOAD_ONLY: "en,pt"
+    volumes:
+      - translate_models:/home/libretranslate/.local
+    mem_limit: 2g
+    healthcheck:
+      test: ["CMD-SHELL", "./venv/bin/python scripts/healthcheck.py"]
+      interval: 15s
+      timeout: 10s
+      retries: 20
+      start_period: 60s
+    networks:
+      - pipenet
+
+  # API de busca (src/api.py). So conversa com Qdrant, embeddings e tradutor
+  # -- nao precisa do RustFS nem das credenciais do datalake.
+  api:
+    build: .
+    image: vectordb-pipeline
+    container_name: api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      QDRANT_URL: http://qdrant:6333
+      EMBEDDINGS_URL: http://embeddings:80
+      TRANSLATE_URL: http://translate:5000
+      RERANKER_URL: http://reranker:80
+    depends_on:
+      - qdrant
+      - embeddings
+      - translate
+      - reranker
+    mem_limit: 1g
+    healthcheck:
+      # /health responde 200 com status ok ou degradado (tradutor fora) e 503
+      # quando nao ha busca possivel
+      test: ["CMD", "/app/.venv/bin/python", "-c",
+             "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=10)"]
+      interval: 30s
+      timeout: 15s
+      retries: 3
+      start_period: 30s
+    networks:
+      - pipenet
+
+  # Servidor do Prefect: agenda as execucoes, guarda o historico e serve a UI
+  # em http://localhost:4210. Mesma versao do prefect do projeto (uv.lock).
+  prefect-server:
+    image: prefecthq/prefect:3.8.6-python3.12
+    container_name: prefect-server
+    restart: unless-stopped
+    command: prefect server start --host 0.0.0.0
+    ports:
+      # 4210 no host: a 4200 ja e de outro projeto (pleito2026) nesta maquina
+      - "4210:4200"
+    environment:
+      # endereco que o NAVEGADOR usa para falar com a API do Prefect
+      PREFECT_UI_API_URL: http://localhost:4210/api
+    volumes:
+      - prefect_data:/root/.prefect
+    healthcheck:
+      test: ["CMD", "python", "-c",
+             "import urllib.request; urllib.request.urlopen('http://localhost:4200/api/health', timeout=5)"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 30s
+    networks:
+      - pipenet
+
+  # O pipeline: registra o deployment "diaria" (21h, Brasilia) no servidor do
+  # Prefect e fica esperando; cada execucao roda aqui, num subprocesso.
+  pipeline:
+    build: .
+    image: vectordb-pipeline
+    container_name: pipeline
+    restart: unless-stopped
+    command: ["/app/.venv/bin/python", "-m", "src.flows"]
+    # UID/GID do dono de ./data no host: o catalogo Iceberg (SQLite) e
+    # compartilhado com quem roda o pipeline fora do container
+    user: "1000:1000"
+    environment:
+      PREFECT_API_URL: http://prefect-server:4200/api
+      S3_ENDPOINT_URL: http://rustfs:9000
+      S3_ACCESS_KEY: ${S3_ACCESS_KEY}
+      S3_SECRET_KEY: ${S3_SECRET_KEY}
+      GROBID_URL: http://grobid:8070
+      EMBEDDINGS_URL: http://embeddings:80
+      QDRANT_URL: http://qdrant:6333
+      # o usuario 1000 nao existe na imagem: caches em pastas gravaveis
+      HOME: /tmp
+      PREFECT_HOME: /tmp/prefect
+      HF_HOME: /app/data/cache/huggingface
+    volumes:
+      - ./data/iceberg:/app/data/iceberg
+      - ./data/cache:/app/data/cache
+    mem_limit: 3g
+    depends_on:
+      prefect-server:
+        condition: service_healthy
+      rustfs:
+        condition: service_healthy
+      grobid:
+        condition: service_healthy
+      embeddings:
+        condition: service_started
+      qdrant:
+        condition: service_started
+    networks:
+      - pipenet
+
+  rustfs:
+    image: rustfs/rustfs:1.0.0
+    container_name: rustfs-storage
+    restart: unless-stopped
+    ports:
+      - "9010:9000"   # API S3
+      - "9011:9001"   # console web
+    environment:
+      RUSTFS_ACCESS_KEY: ${RUSTFS_ACCESS_KEY}
+      RUSTFS_SECRET_KEY: ${RUSTFS_SECRET_KEY}
+      RUSTFS_VOLUMES: /data
+      RUSTFS_ADDRESS: 0.0.0.0:9000
+      RUSTFS_CONSOLE_ENABLE: "true"
+      RUSTFS_CONSOLE_ADDRESS: 0.0.0.0:9001
+    # Volume nomeado, nao bind mount: o container roda como UID 10001, e uma
+    # pasta do host criada pelo docker nasceria de root e sem permissao de escrita.
+    volumes:
+      - rustfs_data:/data
+      - rustfs_logs:/logs
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:9000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - pipenet
+
+  # O RustFS fala S3, entao o cliente mc do MinIO continua servindo para
+  # criar buckets, versionamento e o usuario de servico.
+  #
+  # bronze e documents: versionados e sem DeleteObject -- dado cru imutavel.
+  # silver, gold e chunks: tabelas Iceberg, que ja guardam o proprio historico
+  # em snapshots.
+  # backup: copias do catalogo Iceberg e snapshots do Qdrant, com retencao --
+  # DeleteObject liberado para apagar os mais antigos. Versionamento suspenso e DeleteObject liberado para a limpeza de
+  # snapshots antigos liberar espaco de verdade (com versionamento ligado, um
+  # delete so criaria um delete marker e o arquivo continuaria la).
+  rustfs-init:
+    image: quay.io/minio/mc:latest
+    container_name: rustfs-storage-init
+    depends_on:
+      rustfs:
+        condition: service_healthy
+    environment:
+      RUSTFS_ACCESS_KEY: ${RUSTFS_ACCESS_KEY}
+      RUSTFS_SECRET_KEY: ${RUSTFS_SECRET_KEY}
+      S3_ACCESS_KEY: ${S3_ACCESS_KEY}
+      S3_SECRET_KEY: ${S3_SECRET_KEY}
+    entrypoint: >
+      /bin/sh -c "
+      mc alias set local http://rustfs:9000 $$RUSTFS_ACCESS_KEY $$RUSTFS_SECRET_KEY &&
+      mc mb --ignore-existing local/datalake-bronze &&
+      mc anonymous set none local/datalake-bronze &&
+      mc version enable local/datalake-bronze &&
+      mc mb --ignore-existing local/datalake-silver &&
+      mc anonymous set none local/datalake-silver &&
+      mc version suspend local/datalake-silver &&
+      mc mb --ignore-existing local/datalake-gold &&
+      mc anonymous set none local/datalake-gold &&
+      mc version suspend local/datalake-gold &&
+      mc mb --ignore-existing local/datalake-documents &&
+      mc anonymous set none local/datalake-documents &&
+      mc version enable local/datalake-documents &&
+      mc mb --ignore-existing local/datalake-chunks &&
+      mc anonymous set none local/datalake-chunks &&
+      mc version suspend local/datalake-chunks &&
+      mc mb --ignore-existing local/datalake-backup &&
+      mc anonymous set none local/datalake-backup &&
+      mc version suspend local/datalake-backup &&
+      echo '' | mc pipe local/datalake-bronze/.keep &&
+      echo '' | mc pipe local/datalake-silver/.keep &&
+      echo '' | mc pipe local/datalake-gold/.keep &&
+      mc ls --recursive local/datalake-bronze &&
+      mc ls --recursive local/datalake-silver &&
+      mc ls --recursive local/datalake-gold &&
+      echo 'buckets prontos: bronze/ silver/ gold/' &&
+      echo '{
+        \"Version\": \"2012-10-17\",
+        \"Statement\": [
+          {
+            \"Effect\": \"Allow\",
+            \"Action\": [\"s3:GetObject\", \"s3:PutObject\", \"s3:GetObjectVersion\"],
+            \"Resource\": [\"arn:aws:s3:::datalake-*/*\"]
+          },
+          {
+            \"Effect\": \"Allow\",
+            \"Action\": [\"s3:DeleteObject\"],
+            \"Resource\": [\"arn:aws:s3:::datalake-silver/*\", \"arn:aws:s3:::datalake-gold/*\", \"arn:aws:s3:::datalake-chunks/*\", \"arn:aws:s3:::datalake-backup/*\"]
+          },
+          {
+            \"Effect\": \"Allow\",
+            \"Action\": [\"s3:ListBucket\", \"s3:GetBucketLocation\"],
+            \"Resource\": [\"arn:aws:s3:::datalake-*\"]
+          }
+        ]
+      }' > /tmp/system_user.json &&
+      mc admin policy create local system_user /tmp/system_user.json &&
+      mc admin user add local $$S3_ACCESS_KEY $$S3_SECRET_KEY &&
+      (mc admin policy attach local system_user --user $$S3_ACCESS_KEY 2>/dev/null ||
+       echo 'policy system_user ja estava anexada') &&
+      echo 'usuario de servico system_user pronto (DeleteObject so em silver, gold, chunks e backup, sem admin)'
+      "
+    networks:
+      - pipenet
+
+volumes:
+  prefect_data:
+  rustfs_data:
+  translate_models:
+  tei_data:
+  rustfs_logs:
+
+networks:
+  pipenet:
+    driver: bridge

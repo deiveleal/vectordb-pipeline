@@ -1,0 +1,1007 @@
+{
+  "consultas": "eval/consultas.json",
+  "k": 10,
+  "variacoes": {
+    "en": {
+      "metricas": {
+        "acerto@1": 1.0,
+        "acerto@5": 1.0,
+        "acerto@10": 1.0,
+        "mrr@10": 1.0
+      },
+      "detalhes": [
+        {
+          "esperado": "2609.30087",
+          "tema": "rag",
+          "posicao": 1,
+          "pergunta_busca": "deciding whether to keep a draft answer or revise it with retrieved evidence",
+          "top1": "Return or Revise? Learning When Revision Helps Retrieval-Augmented QA",
+          "score_top1": 0.8775857
+        },
+        {
+          "esperado": "2609.28575",
+          "tema": "rag",
+          "posicao": 1,
+          "pergunta_busca": "benchmark for whether a conversational memory system acts correctly when user beliefs change",
+          "top1": "TWIST: A Proposed Benchmark for Intervention Quality in Conversational Memory, with a Human-Validated Draft-Alignment",
+          "score_top1": 0.88387215
+        },
+        {
+          "esperado": "2609.30227",
+          "tema": "rag",
+          "posicao": 1,
+          "pergunta_busca": "verifying spoken claims from podcasts and speeches with audio language models",
+          "top1": "To Trust or Not to Trust: Retrieval-Augmented Fact Checking in Speech",
+          "score_top1": 0.88014746
+        },
+        {
+          "esperado": "2609.28771",
+          "tema": "rag",
+          "posicao": 1,
+          "pergunta_busca": "trading agent with episodic memory of past market situations",
+          "top1": "Agent Memory with Episodic Retrieval for Financial Decision-Making",
+          "score_top1": 0.91208833
+        },
+        {
+          "esperado": "2609.30009",
+          "tema": "rag",
+          "posicao": 1,
+          "pergunta_busca": "answering banking compliance questions grounded in regulatory rulebooks with small on-premise models",
+          "top1": "Automated Regulatory Compliance Question Answering in Financial Services with Domain-Adapted Retrieval-Augmented Generation",
+          "score_top1": 0.8734517
+        },
+        {
+          "esperado": "2609.29050",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "credit assignment in reinforcement learning for agents that mix tool calls and natural language",
+          "top1": "SLCA-GRPO: Resolving Cross-Segment Credit Misattribution in Tool-Calling RL",
+          "score_top1": 0.85514647
+        },
+        {
+          "esperado": "2609.28876",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "replayable environment with prediction market questions and dated news to train forecasting agents",
+          "top1": "Forecast-Dojo: Replayable Environments for Benchmarking and Training LLM Forecasting Agents",
+          "score_top1": 0.8660238
+        },
+        {
+          "esperado": "2609.28796",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "interpretable analysis of walking patterns from clinical videos with vision-language models",
+          "top1": "DrGait: Biomechanically Grounded Visual Reasoning for Interpretable Clinical Gait Analysis",
+          "score_top1": 0.8248511
+        },
+        {
+          "esperado": "2609.28693",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "limiting which enterprise tools an LLM agent can access based on its role",
+          "top1": "Progressive Skill Discovery as Access Control for Tool-Using LLM Agents: Structural Governance through Role-Scoped Capability Delivery",
+          "score_top1": 0.8340833
+        },
+        {
+          "esperado": "2609.30012",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "cheap methods to measure and compare language model behavior across vendors and releases",
+          "top1": "Low-Cost Assays for Measuring Model Behavior Across Vendors and Releases",
+          "score_top1": 0.8871194
+        },
+        {
+          "esperado": "2609.28557",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "AI agents automating decisions in DNA sequencing bioinformatics pipelines",
+          "top1": "BaseCamp --- An Agentic AI Framework for Automating DNA Sequencing Data Pipelines",
+          "score_top1": 0.9177144
+        },
+        {
+          "esperado": "2609.28554",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "post-training recipe for a multimodal model family combining supervised fine-tuning, distillation and reinforcement learning",
+          "top1": "Pistis Technical Report",
+          "score_top1": 0.85496503
+        },
+        {
+          "esperado": "2609.28572",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "where LLM-based cyberattack agents fail during lateral movement",
+          "top1": "Where Cyber Agents Struggle: Bottleneck Analysis of Multi-Stage LLM Agents",
+          "score_top1": 0.8453255
+        },
+        {
+          "esperado": "2609.30249",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "generating robot programs from a single human video demonstration with coding agents",
+          "top1": "RAPID: Robot Agentic Programming from Demonstrations",
+          "score_top1": 0.8723761
+        },
+        {
+          "esperado": "2609.28843",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "combining blockchain and AI agents for secure data sharing",
+          "top1": "Blockchain-Enabled Artificial Intelligence and AI Agents for Secure Data Sharing and Cybersecurity Applications",
+          "score_top1": 0.92332387
+        },
+        {
+          "esperado": "2609.29798",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "speech recognition for health conversations in African languages like Twi and Ewe",
+          "top1": "Benchmarking and Domain Adaptation of Automatic Speech Recognition (ASR) for Adolescent Health Communication in Ghanaian Languages",
+          "score_top1": 0.87866074
+        },
+        {
+          "esperado": "2609.29940",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "reducing hallucinations in multimodal models by focusing attention on relevant image regions",
+          "top1": "Mind What Matters for Reasoning: Aligning Cross-Modal Attention via Selective Probability Mass Concentration",
+          "score_top1": 0.8531959
+        },
+        {
+          "esperado": "2609.28576",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "time series forecasting that accounts for revisions of previously published data",
+          "top1": "Time-Series Foundation Models That Understand Data Revisions",
+          "score_top1": 0.8843258
+        },
+        {
+          "esperado": "2609.29845",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "mixing two text inputs yields a mixture of the next-token predictions in transformers",
+          "top1": "Your Transformer Can Hold Two Thoughts at Once: Evidence of Linear Superposition in LLMs",
+          "score_top1": 0.8211582
+        },
+        {
+          "esperado": "2609.28998",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "choosing the rank of each LoRA adapter automatically",
+          "top1": "Automatic Rank Allocation for Low-Rank Adaptation in Large Language Models via lp Regularization",
+          "score_top1": 0.7519976
+        },
+        {
+          "esperado": "2609.30100",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "small efficient model for paraphrase detection that explains its decisions",
+          "top1": "R-DEIM Net: An Efficient Rationale-Augmented Dual-Expert Interaction Model for Paraphrase Detection",
+          "score_top1": 0.8553217
+        },
+        {
+          "esperado": "2609.30017",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "bandit optimization over prefix trees for LLM inference like routing and caching",
+          "top1": "Canopy: Exploiting Piecewise Smooth Tree Priors for Multi-Fidelity Bandits",
+          "score_top1": 0.88653654
+        },
+        {
+          "esperado": "2609.30074",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "how reproducible are rankings of LLMs evaluated on small prompt sets",
+          "top1": "How Reproducible Are Evaluation Conclusions? A Self-Audit of LLM-Inferred Prompt Structure",
+          "score_top1": 0.8453166
+        },
+        {
+          "esperado": "2609.29814",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "time series classification using frozen tabular foundation models",
+          "top1": "SwitchPFN: Shared Switching Dynamics for Frozen In-Context Time Series Classification",
+          "score_top1": 0.86222696
+        },
+        {
+          "esperado": "2609.29382",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "early exits to save compute in vision-language-action robot policies",
+          "top1": "Decoupled Early Exits for Task-Dependent Compute Allocation in Flow-Matching VLAs",
+          "score_top1": 0.85675555
+        }
+      ]
+    },
+    "en_com_tema": {
+      "metricas": {
+        "acerto@1": 1.0,
+        "acerto@5": 1.0,
+        "acerto@10": 1.0,
+        "mrr@10": 1.0
+      },
+      "detalhes": [
+        {
+          "esperado": "2609.30087",
+          "tema": "rag",
+          "posicao": 1,
+          "pergunta_busca": "deciding whether to keep a draft answer or revise it with retrieved evidence",
+          "top1": "Return or Revise? Learning When Revision Helps Retrieval-Augmented QA",
+          "score_top1": 0.8775857
+        },
+        {
+          "esperado": "2609.28575",
+          "tema": "rag",
+          "posicao": 1,
+          "pergunta_busca": "benchmark for whether a conversational memory system acts correctly when user beliefs change",
+          "top1": "TWIST: A Proposed Benchmark for Intervention Quality in Conversational Memory, with a Human-Validated Draft-Alignment",
+          "score_top1": 0.88387215
+        },
+        {
+          "esperado": "2609.30227",
+          "tema": "rag",
+          "posicao": 1,
+          "pergunta_busca": "verifying spoken claims from podcasts and speeches with audio language models",
+          "top1": "To Trust or Not to Trust: Retrieval-Augmented Fact Checking in Speech",
+          "score_top1": 0.88014746
+        },
+        {
+          "esperado": "2609.28771",
+          "tema": "rag",
+          "posicao": 1,
+          "pergunta_busca": "trading agent with episodic memory of past market situations",
+          "top1": "Agent Memory with Episodic Retrieval for Financial Decision-Making",
+          "score_top1": 0.91208833
+        },
+        {
+          "esperado": "2609.30009",
+          "tema": "rag",
+          "posicao": 1,
+          "pergunta_busca": "answering banking compliance questions grounded in regulatory rulebooks with small on-premise models",
+          "top1": "Automated Regulatory Compliance Question Answering in Financial Services with Domain-Adapted Retrieval-Augmented Generation",
+          "score_top1": 0.8734517
+        },
+        {
+          "esperado": "2609.29050",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "credit assignment in reinforcement learning for agents that mix tool calls and natural language",
+          "top1": "SLCA-GRPO: Resolving Cross-Segment Credit Misattribution in Tool-Calling RL",
+          "score_top1": 0.85514647
+        },
+        {
+          "esperado": "2609.28876",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "replayable environment with prediction market questions and dated news to train forecasting agents",
+          "top1": "Forecast-Dojo: Replayable Environments for Benchmarking and Training LLM Forecasting Agents",
+          "score_top1": 0.8660238
+        },
+        {
+          "esperado": "2609.28796",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "interpretable analysis of walking patterns from clinical videos with vision-language models",
+          "top1": "DrGait: Biomechanically Grounded Visual Reasoning for Interpretable Clinical Gait Analysis",
+          "score_top1": 0.8248511
+        },
+        {
+          "esperado": "2609.28693",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "limiting which enterprise tools an LLM agent can access based on its role",
+          "top1": "Progressive Skill Discovery as Access Control for Tool-Using LLM Agents: Structural Governance through Role-Scoped Capability Delivery",
+          "score_top1": 0.8340833
+        },
+        {
+          "esperado": "2609.30012",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "cheap methods to measure and compare language model behavior across vendors and releases",
+          "top1": "Low-Cost Assays for Measuring Model Behavior Across Vendors and Releases",
+          "score_top1": 0.8871194
+        },
+        {
+          "esperado": "2609.28557",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "AI agents automating decisions in DNA sequencing bioinformatics pipelines",
+          "top1": "BaseCamp --- An Agentic AI Framework for Automating DNA Sequencing Data Pipelines",
+          "score_top1": 0.9177144
+        },
+        {
+          "esperado": "2609.28554",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "post-training recipe for a multimodal model family combining supervised fine-tuning, distillation and reinforcement learning",
+          "top1": "Pistis Technical Report",
+          "score_top1": 0.85496503
+        },
+        {
+          "esperado": "2609.28572",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "where LLM-based cyberattack agents fail during lateral movement",
+          "top1": "Where Cyber Agents Struggle: Bottleneck Analysis of Multi-Stage LLM Agents",
+          "score_top1": 0.8453255
+        },
+        {
+          "esperado": "2609.30249",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "generating robot programs from a single human video demonstration with coding agents",
+          "top1": "RAPID: Robot Agentic Programming from Demonstrations",
+          "score_top1": 0.8723761
+        },
+        {
+          "esperado": "2609.28843",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "combining blockchain and AI agents for secure data sharing",
+          "top1": "Blockchain-Enabled Artificial Intelligence and AI Agents for Secure Data Sharing and Cybersecurity Applications",
+          "score_top1": 0.92332387
+        },
+        {
+          "esperado": "2609.29798",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "speech recognition for health conversations in African languages like Twi and Ewe",
+          "top1": "Benchmarking and Domain Adaptation of Automatic Speech Recognition (ASR) for Adolescent Health Communication in Ghanaian Languages",
+          "score_top1": 0.87866074
+        },
+        {
+          "esperado": "2609.29940",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "reducing hallucinations in multimodal models by focusing attention on relevant image regions",
+          "top1": "Mind What Matters for Reasoning: Aligning Cross-Modal Attention via Selective Probability Mass Concentration",
+          "score_top1": 0.8531959
+        },
+        {
+          "esperado": "2609.28576",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "time series forecasting that accounts for revisions of previously published data",
+          "top1": "Time-Series Foundation Models That Understand Data Revisions",
+          "score_top1": 0.8843258
+        },
+        {
+          "esperado": "2609.29845",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "mixing two text inputs yields a mixture of the next-token predictions in transformers",
+          "top1": "Your Transformer Can Hold Two Thoughts at Once: Evidence of Linear Superposition in LLMs",
+          "score_top1": 0.8211582
+        },
+        {
+          "esperado": "2609.28998",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "choosing the rank of each LoRA adapter automatically",
+          "top1": "Automatic Rank Allocation for Low-Rank Adaptation in Large Language Models via lp Regularization",
+          "score_top1": 0.7519976
+        },
+        {
+          "esperado": "2609.30100",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "small efficient model for paraphrase detection that explains its decisions",
+          "top1": "R-DEIM Net: An Efficient Rationale-Augmented Dual-Expert Interaction Model for Paraphrase Detection",
+          "score_top1": 0.8553217
+        },
+        {
+          "esperado": "2609.30017",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "bandit optimization over prefix trees for LLM inference like routing and caching",
+          "top1": "Canopy: Exploiting Piecewise Smooth Tree Priors for Multi-Fidelity Bandits",
+          "score_top1": 0.88653654
+        },
+        {
+          "esperado": "2609.30074",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "how reproducible are rankings of LLMs evaluated on small prompt sets",
+          "top1": "How Reproducible Are Evaluation Conclusions? A Self-Audit of LLM-Inferred Prompt Structure",
+          "score_top1": 0.8453166
+        },
+        {
+          "esperado": "2609.29814",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "time series classification using frozen tabular foundation models",
+          "top1": "SwitchPFN: Shared Switching Dynamics for Frozen In-Context Time Series Classification",
+          "score_top1": 0.86222696
+        },
+        {
+          "esperado": "2609.29382",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "early exits to save compute in vision-language-action robot policies",
+          "top1": "Decoupled Early Exits for Task-Dependent Compute Allocation in Flow-Matching VLAs",
+          "score_top1": 0.85675555
+        }
+      ]
+    },
+    "pt": {
+      "metricas": {
+        "acerto@1": 1.0,
+        "acerto@5": 1.0,
+        "acerto@10": 1.0,
+        "mrr@10": 1.0
+      },
+      "detalhes": [
+        {
+          "esperado": "2609.30087",
+          "tema": "rag",
+          "posicao": 1,
+          "pergunta_busca": "decide whether to keep the response draft or review using recovered evidence",
+          "top1": "Return or Revise? Learning When Revision Helps Retrieval-Augmented QA",
+          "score_top1": 0.81341994
+        },
+        {
+          "esperado": "2609.28575",
+          "tema": "rag",
+          "posicao": 1,
+          "pergunta_busca": "benchmark that evaluates whether the memory of a conversational assistant acts right when user beliefs change",
+          "top1": "TWIST: A Proposed Benchmark for Intervention Quality in Conversational Memory, with a Human-Validated Draft-Alignment",
+          "score_top1": 0.8592558
+        },
+        {
+          "esperado": "2609.30227",
+          "tema": "rag",
+          "posicao": 1,
+          "pergunta_busca": "check statements spoken in podcasts and speeches with language audio models",
+          "top1": "To Trust or Not to Trust: Retrieval-Augmented Fact Checking in Speech",
+          "score_top1": 0.8437673
+        },
+        {
+          "esperado": "2609.28771",
+          "tema": "rag",
+          "posicao": 1,
+          "pergunta_busca": "trading agent on the stock exchange with episodic memory of past market situations",
+          "top1": "Agent Memory with Episodic Retrieval for Financial Decision-Making",
+          "score_top1": 0.9128614
+        },
+        {
+          "esperado": "2609.30009",
+          "tema": "rag",
+          "posicao": 1,
+          "pergunta_busca": "answer bank regulatory compliance questions with small models running locally",
+          "top1": "Automated Regulatory Compliance Question Answering in Financial Services with Domain-Adapted Retrieval-Augmented Generation",
+          "score_top1": 0.7763501
+        },
+        {
+          "esperado": "2609.29050",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "credit allocation in reinforcement learning of agents who call tools and generate text",
+          "top1": "SLCA-GRPO: Resolving Cross-Segment Credit Misattribution in Tool-Calling RL",
+          "score_top1": 0.84337234
+        },
+        {
+          "esperado": "2609.28876",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "environment with prediction market questions and news dated to train forecasting agents",
+          "top1": "Forecast-Dojo: Replayable Environments for Benchmarking and Training LLM Forecasting Agents",
+          "score_top1": 0.8054456
+        },
+        {
+          "esperado": "2609.28796",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "interpretable analysis of gait of patients from clinical videos with vision and language models",
+          "top1": "DrGait: Biomechanically Grounded Visual Reasoning for Interpretable Clinical Gait Analysis",
+          "score_top1": 0.8689637
+        },
+        {
+          "esperado": "2609.28693",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "restrict which corporate tools an LLM agent can access according to the role",
+          "top1": "Progressive Skill Discovery as Access Control for Tool-Using LLM Agents: Structural Governance through Role-Scoped Capability Delivery",
+          "score_top1": 0.7877057
+        },
+        {
+          "esperado": "2609.30012",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "cheap methods to measure and compare language models behavior between suppliers and versions",
+          "top1": "Low-Cost Assays for Measuring Model Behavior Across Vendors and Releases",
+          "score_top1": 0.8609706
+        },
+        {
+          "esperado": "2609.28557",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "aI agents automating decisions on DNA sequencing pipelines",
+          "top1": "BaseCamp --- An Agentic AI Framework for Automating DNA Sequencing Data Pipelines",
+          "score_top1": 0.9200425
+        },
+        {
+          "esperado": "2609.28554",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "post-training recipe of a family of multimodal models combining fine-tuning, distillation and reinforcement learning",
+          "top1": "Pistis Technical Report",
+          "score_top1": 0.8582244
+        },
+        {
+          "esperado": "2609.28572",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "where cyberattack agents based on LLM fail during lateral movement in the network",
+          "top1": "Where Cyber Agents Struggle: Bottleneck Analysis of Multi-Stage LLM Agents",
+          "score_top1": 0.8469626
+        },
+        {
+          "esperado": "2609.30249",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "generate robot programs from a single human video demonstration using code agents",
+          "top1": "RAPID: Robot Agentic Programming from Demonstrations",
+          "score_top1": 0.86590123
+        },
+        {
+          "esperado": "2609.28843",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "combine blockchain and AI agents for secure data sharing",
+          "top1": "Blockchain-Enabled Artificial Intelligence and AI Agents for Secure Data Sharing and Cybersecurity Applications",
+          "score_top1": 0.9153184
+        },
+        {
+          "esperado": "2609.29798",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "speech recognition for conversations about health in african languages such as twi and ewe",
+          "top1": "Benchmarking and Domain Adaptation of Automatic Speech Recognition (ASR) for Adolescent Health Communication in Ghanaian Languages",
+          "score_top1": 0.8734775
+        },
+        {
+          "esperado": "2609.29940",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "reduce hallucination in multimodal models focusing attention on relevant image regions",
+          "top1": "Mind What Matters for Reasoning: Aligning Cross-Modal Attention via Selective Probability Mass Concentration",
+          "score_top1": 0.86235416
+        },
+        {
+          "esperado": "2609.28576",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "forecast of time series taking into account revisions in historical data already published",
+          "top1": "Time-Series Foundation Models That Understand Data Revisions",
+          "score_top1": 0.86877245
+        },
+        {
+          "esperado": "2609.29845",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "combining two text entries generates a mixture of the next token's predictions into transformers",
+          "top1": "Your Transformer Can Hold Two Thoughts at Once: Evidence of Linear Superposition in LLMs",
+          "score_top1": 0.73949647
+        },
+        {
+          "esperado": "2609.28998",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "automatically choose the rank of each LoRA adapter",
+          "top1": "Automatic Rank Allocation for Low-Rank Adaptation in Large Language Models via lp Regularization",
+          "score_top1": 0.7453786
+        },
+        {
+          "esperado": "2609.30100",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "small and efficient paraphrase detection model that explains its decisions",
+          "top1": "R-DEIM Net: An Efficient Rationale-Augmented Dual-Expert Interaction Model for Paraphrase Detection",
+          "score_top1": 0.8530339
+        },
+        {
+          "esperado": "2609.30017",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "optimization with bandits over prefix trees for LLM inference, such as routing and cache",
+          "top1": "Canopy: Exploiting Piecewise Smooth Tree Priors for Multi-Fidelity Bandits",
+          "score_top1": 0.90252006
+        },
+        {
+          "esperado": "2609.30074",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "how reproducible are the rankings of LLMs evaluated with few prompts",
+          "top1": "How Reproducible Are Evaluation Conclusions? A Self-Audit of LLM-Inferred Prompt Structure",
+          "score_top1": 0.82624876
+        },
+        {
+          "esperado": "2609.29814",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "time series classification using frozen tabular foundational models",
+          "top1": "SwitchPFN: Shared Switching Dynamics for Frozen In-Context Time Series Classification",
+          "score_top1": 0.85768026
+        },
+        {
+          "esperado": "2609.29382",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "early exit to save computing on vision-language-action models for robots",
+          "top1": "Decoupled Early Exits for Task-Dependent Compute Allocation in Flow-Matching VLAs",
+          "score_top1": 0.8527783
+        }
+      ]
+    },
+    "pt_sem_trad": {
+      "metricas": {
+        "acerto@1": 0.36,
+        "acerto@5": 0.72,
+        "acerto@10": 0.8,
+        "mrr@10": 0.5163809523809524
+      },
+      "detalhes": [
+        {
+          "esperado": "2609.30087",
+          "tema": "rag",
+          "posicao": 2,
+          "pergunta_busca": "decidir se mantém a resposta rascunho ou revisa usando evidências recuperadas",
+          "top1": "pylazaro: a Python package for anglicism extraction in Spanish",
+          "score_top1": 0.6001316
+        },
+        {
+          "esperado": "2609.28575",
+          "tema": "rag",
+          "posicao": 3,
+          "pergunta_busca": "benchmark que avalia se a memória de um assistente conversacional age certo quando as crenças do usuário mudam",
+          "top1": "Benchmarking and Domain Adaptation of Automatic Speech Recognition (ASR) for Adolescent Health Communication in Ghanaian Languages",
+          "score_top1": 0.7287971
+        },
+        {
+          "esperado": "2609.30227",
+          "tema": "rag",
+          "posicao": 7,
+          "pergunta_busca": "verificar afirmações faladas em podcasts e discursos com modelos de linguagem de áudio",
+          "top1": "Do Audio Language Models Hear and Read Distinctive Features Alike?",
+          "score_top1": 0.79023945
+        },
+        {
+          "esperado": "2609.28771",
+          "tema": "rag",
+          "posicao": 1,
+          "pergunta_busca": "agente de negociação na bolsa com memória episódica de situações passadas do mercado",
+          "top1": "Agent Memory with Episodic Retrieval for Financial Decision-Making",
+          "score_top1": 0.7607952
+        },
+        {
+          "esperado": "2609.30009",
+          "tema": "rag",
+          "posicao": 4,
+          "pergunta_busca": "responder perguntas de conformidade regulatória bancária com modelos pequenos rodando localmente",
+          "top1": "CRISS: A Retrieval-Augmented AI Chatbot for Assisting Cancer Registrars",
+          "score_top1": 0.7198216
+        },
+        {
+          "esperado": "2609.29050",
+          "tema": "agents",
+          "posicao": 3,
+          "pergunta_busca": "atribuição de crédito no aprendizado por reforço de agentes que chamam ferramentas e geram texto",
+          "top1": "IndicBankBench: Evaluating Safety and Reliability of Language Model Assistants in Indian Retail Banking",
+          "score_top1": 0.70308244
+        },
+        {
+          "esperado": "2609.28876",
+          "tema": "agents",
+          "posicao": 4,
+          "pergunta_busca": "ambiente com perguntas de mercados de previsão e notícias datadas para treinar agentes de previsão",
+          "top1": "Breaking the Environment Wall: Evolving LLM Agent Environments for Recursive Self-Improvement",
+          "score_top1": 0.7158574
+        },
+        {
+          "esperado": "2609.28796",
+          "tema": "agents",
+          "posicao": 2,
+          "pergunta_busca": "análise interpretável da marcha de pacientes a partir de vídeos clínicos com modelos de visão e linguagem",
+          "top1": "Beneath the Scores: Rethinking Hallucination Evaluation for Video Understanding Models",
+          "score_top1": 0.7494972
+        },
+        {
+          "esperado": "2609.28693",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "restringir quais ferramentas corporativas um agente de LLM pode acessar de acordo com o papel",
+          "top1": "Progressive Skill Discovery as Access Control for Tool-Using LLM Agents: Structural Governance through Role-Scoped Capability Delivery",
+          "score_top1": 0.70358866
+        },
+        {
+          "esperado": "2609.30012",
+          "tema": "agents",
+          "posicao": null,
+          "pergunta_busca": "métodos baratos para medir e comparar o comportamento de modelos de linguagem entre fornecedores e versões",
+          "top1": "CRISS: A Retrieval-Augmented AI Chatbot for Assisting Cancer Registrars",
+          "score_top1": 0.7600156
+        },
+        {
+          "esperado": "2609.28557",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "agentes de IA automatizando decisões em pipelines de sequenciamento de DNA",
+          "top1": "BaseCamp --- An Agentic AI Framework for Automating DNA Sequencing Data Pipelines",
+          "score_top1": 0.8590565
+        },
+        {
+          "esperado": "2609.28554",
+          "tema": "agents",
+          "posicao": null,
+          "pergunta_busca": "receita de pós-treinamento de uma família de modelos multimodais combinando ajuste fino, destilação e aprendizado por reforço",
+          "top1": "How Reproducible Are Evaluation Conclusions? A Self-Audit of LLM-Inferred Prompt Structure",
+          "score_top1": 0.756104
+        },
+        {
+          "esperado": "2609.28572",
+          "tema": "agents",
+          "posicao": 10,
+          "pergunta_busca": "onde agentes de ataque cibernético baseados em LLM falham durante o movimento lateral na rede",
+          "top1": "MeshHeal: Two-Timescale Self-Healing for Gray Failures in Decentralized LLM Agent Networks",
+          "score_top1": 0.72380114
+        },
+        {
+          "esperado": "2609.30249",
+          "tema": "agents",
+          "posicao": 2,
+          "pergunta_busca": "gerar programas de robô a partir de uma única demonstração humana em vídeo usando agentes de código",
+          "top1": "World Action Agent: Harnessing VLMs for Robot Manipulation via World Action Rehearsal",
+          "score_top1": 0.74882007
+        },
+        {
+          "esperado": "2609.28843",
+          "tema": "agents",
+          "posicao": 1,
+          "pergunta_busca": "combinar blockchain e agentes de IA para compartilhamento seguro de dados",
+          "top1": "Blockchain-Enabled Artificial Intelligence and AI Agents for Secure Data Sharing and Cybersecurity Applications",
+          "score_top1": 0.8030581
+        },
+        {
+          "esperado": "2609.29798",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "reconhecimento de fala para conversas sobre saúde em línguas africanas como twi e ewe",
+          "top1": "Benchmarking and Domain Adaptation of Automatic Speech Recognition (ASR) for Adolescent Health Communication in Ghanaian Languages",
+          "score_top1": 0.7878859
+        },
+        {
+          "esperado": "2609.29940",
+          "tema": "llm",
+          "posicao": null,
+          "pergunta_busca": "reduzir alucinações em modelos multimodais concentrando a atenção nas regiões relevantes da imagem",
+          "top1": "Let Training Guide Selection: Online Synthetic Data Filtering via Real-Anchored Utility",
+          "score_top1": 0.75842917
+        },
+        {
+          "esperado": "2609.28576",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "previsão de séries temporais levando em conta revisões nos dados históricos já publicados",
+          "top1": "Time-Series Foundation Models That Understand Data Revisions",
+          "score_top1": 0.69034636
+        },
+        {
+          "esperado": "2609.29845",
+          "tema": "llm",
+          "posicao": 2,
+          "pergunta_busca": "combinar duas entradas de texto gera uma mistura das previsões do próximo token em transformers",
+          "top1": "The Tokens Remember: When Tokenization Bypasses Knowledge Editing and Unlearning",
+          "score_top1": 0.7485666
+        },
+        {
+          "esperado": "2609.28998",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "escolher automaticamente o rank de cada adaptador LoRA",
+          "top1": "Automatic Rank Allocation for Low-Rank Adaptation in Large Language Models via lp Regularization",
+          "score_top1": 0.7583005
+        },
+        {
+          "esperado": "2609.30100",
+          "tema": "llm",
+          "posicao": null,
+          "pergunta_busca": "modelo pequeno e eficiente para detecção de paráfrases que explica suas decisões",
+          "top1": "Requirement-Bound Verified Commissioning: A Frozen Four-Billion-Parameter Local Model as a Candidate Generator under an External Acceptance Layer with Verification and Release Authority",
+          "score_top1": 0.7066837
+        },
+        {
+          "esperado": "2609.30017",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "otimização com bandits sobre árvores de prefixos para inferência de LLM, como roteamento e cache",
+          "top1": "Canopy: Exploiting Piecewise Smooth Tree Priors for Multi-Fidelity Bandits",
+          "score_top1": 0.818663
+        },
+        {
+          "esperado": "2609.30074",
+          "tema": "llm",
+          "posicao": 2,
+          "pergunta_busca": "quão reprodutíveis são os rankings de LLMs avaliados com poucos prompts",
+          "top1": "Likelihood Ranking doesn't Scale Like Prompting in LLMs",
+          "score_top1": 0.728263
+        },
+        {
+          "esperado": "2609.29814",
+          "tema": "llm",
+          "posicao": 1,
+          "pergunta_busca": "classificação de séries temporais usando modelos fundacionais tabulares congelados",
+          "top1": "SwitchPFN: Shared Switching Dynamics for Frozen In-Context Time Series Classification",
+          "score_top1": 0.8008485
+        },
+        {
+          "esperado": "2609.29382",
+          "tema": "llm",
+          "posicao": null,
+          "pergunta_busca": "saída antecipada para economizar computação em modelos visão-linguagem-ação para robôs",
+          "top1": "Low-Cost Assays for Measuring Model Behavior Across Vendors and Releases",
+          "score_top1": 0.7530926
+        }
+      ]
+    }
+  },
+  "negativas": {
+    "en": [
+      {
+        "pergunta": "protein structure prediction with diffusion models",
+        "pergunta_busca": "protein structure prediction with diffusion models",
+        "score_top1": 0.80130243,
+        "top1": "PoEM: Predicting RL Outcomes from Existing Policies"
+      },
+      {
+        "pergunta": "quantum error correction codes",
+        "pergunta_busca": "quantum error correction codes",
+        "score_top1": 0.7739955,
+        "top1": "Learning and interpreting policies for simultaneous entanglement requests in quantum networks"
+      },
+      {
+        "pergunta": "classifying galaxy shapes from telescope images",
+        "pergunta_busca": "classifying galaxy shapes from telescope images",
+        "score_top1": 0.7089603,
+        "top1": "Exploiting answer-invariant redundancies in satellite imagery for efficient VLM inference on edge"
+      },
+      {
+        "pergunta": "soil erosion modeling in agriculture",
+        "pergunta_busca": "soil erosion modeling in agriculture",
+        "score_top1": 0.6693494,
+        "top1": "TimeBraid: Unifying Time Series and Language for Understanding and Forecasting"
+      },
+      {
+        "pergunta": "predicting football match results from player statistics",
+        "pergunta_busca": "predicting football match results from player statistics",
+        "score_top1": 0.7258023,
+        "top1": "Forecast-Dojo: Replayable Environments for Benchmarking and Training LLM Forecasting Agents"
+      }
+    ],
+    "pt": [
+      {
+        "pergunta": "predição de estrutura de proteínas com modelos de difusão",
+        "pergunta_busca": "prediction of protein structure with diffusion models",
+        "score_top1": 0.8047923,
+        "top1": "PoEM: Predicting RL Outcomes from Existing Policies"
+      },
+      {
+        "pergunta": "códigos de correção de erros quânticos",
+        "pergunta_busca": "quantum error correction codes",
+        "score_top1": 0.7739955,
+        "top1": "Learning and interpreting policies for simultaneous entanglement requests in quantum networks"
+      },
+      {
+        "pergunta": "classificar formatos de galáxias em imagens de telescópio",
+        "pergunta_busca": "classify galaxy formats into telescope images",
+        "score_top1": 0.6948252,
+        "top1": "Robust Detection of LLM-Generated Text under Contamination"
+      },
+      {
+        "pergunta": "modelagem de erosão do solo na agricultura",
+        "pergunta_busca": "soil erosion modeling in agriculture",
+        "score_top1": 0.6693494,
+        "top1": "TimeBraid: Unifying Time Series and Language for Understanding and Forecasting"
+      },
+      {
+        "pergunta": "prever resultados de partidas de futebol a partir de estatísticas dos jogadores",
+        "pergunta_busca": "predict soccer match results from player statistics",
+        "score_top1": 0.7146165,
+        "top1": "Forecast-Dojo: Replayable Environments for Benchmarking and Training LLM Forecasting Agents"
+      }
+    ]
+  },
+  "scores_top1_certo": {
+    "en": [
+      0.8775857,
+      0.88387215,
+      0.88014746,
+      0.91208833,
+      0.8734517,
+      0.85514647,
+      0.8660238,
+      0.8248511,
+      0.8340833,
+      0.8871194,
+      0.9177144,
+      0.85496503,
+      0.8453255,
+      0.8723761,
+      0.92332387,
+      0.87866074,
+      0.8531959,
+      0.8843258,
+      0.8211582,
+      0.7519976,
+      0.8553217,
+      0.88653654,
+      0.8453166,
+      0.86222696,
+      0.85675555
+    ],
+    "en_com_tema": [
+      0.8775857,
+      0.88387215,
+      0.88014746,
+      0.91208833,
+      0.8734517,
+      0.85514647,
+      0.8660238,
+      0.8248511,
+      0.8340833,
+      0.8871194,
+      0.9177144,
+      0.85496503,
+      0.8453255,
+      0.8723761,
+      0.92332387,
+      0.87866074,
+      0.8531959,
+      0.8843258,
+      0.8211582,
+      0.7519976,
+      0.8553217,
+      0.88653654,
+      0.8453166,
+      0.86222696,
+      0.85675555
+    ],
+    "pt": [
+      0.81341994,
+      0.8592558,
+      0.8437673,
+      0.9128614,
+      0.7763501,
+      0.84337234,
+      0.8054456,
+      0.8689637,
+      0.7877057,
+      0.8609706,
+      0.9200425,
+      0.8582244,
+      0.8469626,
+      0.86590123,
+      0.9153184,
+      0.8734775,
+      0.86235416,
+      0.86877245,
+      0.73949647,
+      0.7453786,
+      0.8530339,
+      0.90252006,
+      0.82624876,
+      0.85768026,
+      0.8527783
+    ],
+    "pt_sem_trad": [
+      0.7607952,
+      0.70358866,
+      0.8590565,
+      0.8030581,
+      0.7878859,
+      0.69034636,
+      0.7583005,
+      0.818663,
+      0.8008485
+    ]
+  },
+  "executado_em": "2026-09-26T12:14:32-03:00"
+}
